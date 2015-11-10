@@ -1,0 +1,133 @@
+.errors {
+	color: red;
+}
+
+a {
+	color : #437fda;
+	text-decoration : none;
+}
+
+#menu {
+	
+	font :  120% sans-serif;
+	padding : 1em 1em 0 1em;
+	color : #ffffff;
+}
+
+a.menu {
+	color : #ffffff;
+	text-decoration : none;
+}
+
+a:visited {
+	color : #437fda;
+	text-decoration : underline;
+}
+
+a:visited.menu {
+	color : #ffffff;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #ba8f43;
+}
+
+a:hover.menu {
+	color : #ba8f43;
+}
+h1 {
+	font :  160% sans-serif;
+	padding : 1em 1em 0 1em;
+}
+h2 {
+	color : #343434;
+	font :  130% sans-serif; 
+	padding : 1em 1em 0 1em;
+}
+h3 {
+	color : #343434;
+	font : 110% sans-serif;
+}
+h4,label {
+	color : #343434;
+	font : bold 100% sans-serif;
+	padding : 1em 1em 0 1em;
+}
+
+html {
+	color : #565656;
+	font : 70%/170% sans-serif;
+	text-align : justify;
+}
+
+form button {
+	background : #ffffff;
+	border : 1px solid #cfcfcf;
+	padding : 0.25em;
+	margin : 0 0 0em 2em;
+}
+form input {
+	border : 1px solid #cfcfcf; 
+}
+form textarea {
+	border : none;
+	height : 10em;
+}
+
+p {
+	padding : 1em 1em 0 1em;
+}
+
+#main {
+	margin : auto;
+	max-width : 75em;
+	min-width : 40em;
+	width : auto !important;
+	width : 65em;
+}
+
+#header {
+	background : #FF6600 bottom left;
+	padding : 2em 2em 2em 2em;
+}
+#header h1 {
+	color : #ffffff;
+	font : italic 200% sans-serif;
+}
+
+#panel {
+	background : #efefef;
+	border : 1px solid #dfdfdf;
+	border-bottom : 1px solid #cfcfcf;
+	border-top : none;
+	height : auto !important;
+	height : 1%;
+	overflow : hidden;
+	padding : 1em 3em 1em 3em;
+	font-size: small;
+}
+#panel div {
+	padding : 2em 0 0 0;
+}
+
+#footer {
+	font-size : 85%;
+	margin : auto;
+	padding : 1em 0 3em 0;
+	text-align : center;
+	width :
+}
+table.list {
+	border-collapse: collapse;
+	width: 100%;
+}
+th.list{
+	font-weight: bold;
+}
+	       
+tr.list,td.list,th.list {
+	border: 1px solid black;
+	color: black;
+	text-align: center;
+}

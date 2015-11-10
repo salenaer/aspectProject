@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+     
+    <aop:aspectj-autoproxy>
+	  	<aop:include name="authenticationAspect"/>
+	</aop:aspectj-autoproxy>
+     
+	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+		<property name="interceptors">
+			<list>
+			<ref bean="loginInterceptor"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<!--  TODO: add your business exception mappings -->
+			</props>
+		</property> 
+	</bean>  
+	
+	<bean name="/listAccounts.htm" class="ssel.banking.web.controller.ListAccountsController" autowire="autodetect">
+		
+	</bean>
+	
+	<bean name="/login.htm" class="ssel.banking.web.controller.LoginController" autowire="autodetect">
+		<property name="successView" value="loginsuccess"/>
+	</bean>
+	
+	
+	
+	<bean name="/welcome.htm" class="ssel.banking.web.controller.DefaultWebController" autowire="autodetect">
+		
+	</bean>
+	
+	<bean name="/logout.htm" class="ssel.banking.web.controller.LogoutController" autowire="autodetect">
+		
+	</bean>
+    
+    
+    <!--  TODO: add your own controllers -->
+    
+      
+  </beans>
+  
+    

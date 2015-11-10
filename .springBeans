@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.2.6.200908051215-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/ssel/banking/banking.deploy.xml</config>
+		<config>test/ssel/banking/dao/jpa/banking.dao.test.xml</config>
+		<config>src/ssel/banking/dao/banking.db.xml</config>
+		<config>src/ssel/banking/dao/banking.hsqldb.xml</config>
+		<config>src/ssel/banking/service/banking.service.xml</config>
+		<config>src/ssel/banking/service/accgen/banking.service.xml</config>
+		<config>src/ssel/banking/service/login/banking.service.xml</config>
+		<config>src/ssel/banking/web/banking.web.tiles.xml</config>
+		<config>src/ssel/banking/web/controller/banking.web.controller.xml</config>
+		<config>WebContent/WEB-INF/applicationContext.xml</config>
+		<config>WebContent/WEB-INF/BankingWeb-servlet.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>
