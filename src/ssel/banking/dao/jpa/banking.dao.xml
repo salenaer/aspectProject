@@ -19,5 +19,14 @@
 		<property name="jpaDialect" ref="jpaDialect" />
 	</bean>
 
+	<bean id="UserManager" class="ssel.bankingDao.jpa.UserManager">
+		<property name="em" ref="EntityManagerFactory" />
+	</bean>
+
+	<bean id="AccountManager" class="ssel.bankingDao.jpa.AccountManager">
+		<property name="em" ref="EntityManagerFactory" />
+	</bean>
+
+
 
 </beans>

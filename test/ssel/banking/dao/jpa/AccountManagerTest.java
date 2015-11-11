@@ -38,7 +38,7 @@ public class AccountManagerTest extends AbstractJpaTest {
 		
 		assertEquals(1,accountManager.getAccounts4User(user).size());
 		
-		accountManager.deleteAccount(account);
+		accountManager.removeAccount(account);
 		
 		assertEquals(0,accountManager.getAccounts4User(user).size());
 	}

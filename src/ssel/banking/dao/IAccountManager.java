@@ -17,6 +17,6 @@ public interface IAccountManager {
 	
 	public Account getMostRecentAccount();
 	
-	public void deleteAccount(Account ac);
+	public void removeAccount(Account ac);
 }
  

@@ -2,27 +2,38 @@ package ssel.banking.dao.jpa;
 
 import ssel.banking.domain.User;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+
+@Repository //to translate errors
 public class UserManager implements ssel.banking.dao.IUserManager{
-	
+
+	@PersistenceContext
 	EntityManager em;
 
-	public User findUser4Email(String email) {
-		em.createNamedQuery("User.user4Email").setParameter("email", email);
+	private List<User> getUserList4Email(String email){
+		Query query = em.createNamedQuery("User.user4Email").setParameter("email", email);
+		@SuppressWarnings("unchecked")
+		List<User> users = query.getResultList();
+		return users;
+	}
 
-		return null;
+	public User findUser4Email(String email) {
+		List<User> users = getUserList4Email(email);
+		return users.get(0);
 	}
 
 	public User storeUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		em.persist(user);
+		return user;
 	}
 
 	public boolean userExists(String email) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+		List<User> user = getUserList4Email(email);
+		return !user.isEmpty();}
 }

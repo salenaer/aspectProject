@@ -2,14 +2,26 @@ package ssel.banking.domain;
 
 import java.util.Date;
 import java.util.List;
-//rekeningnummer
+//this is a bank account
+
+import javax.persistence.NamedQuery;
+import javax.persistence.NamedQueries;
+
 @javax.persistence.Embeddable
+@NamedQueries({
+	@NamedQuery(name = "Account.accounts4User", query = "SELECT a FROM account a WHERE a.user = :user"),
+	@NamedQuery(name = "Account.accounts4Name", query = "SELECT a FROM account a WHERE c.name = :name"),
+	@NamedQuery(name = "Account.accounts", query = "SELECT a FROM account a")
+})
 
 public class Account extends AbstractDomain{
 	String name;
 	Date date;
 	double value;
-	List<User> users;
+	
+	
+	
+	@javax.persistence.OneToMany
 	List<AccountActivity> activities;
 	
 	@javax.persistence.ManyToOne
@@ -36,15 +48,23 @@ public class Account extends AbstractDomain{
 		this.value = value;
 	}
 	
+	public List<AccountActivity> getAccountActivity() {
+		return activities;
+	}
+	public void setAccountActivity(List<AccountActivity> activities) {
+		this.activities = activities;
+	}
 	public void addAccountActivity(AccountActivity activity) {
 		activities.add(activity);		
 	}
 	
-	public void setUser(User user) {
-		users.add(user);		
+	public User getUser(){
+		return user;
 	}
 	
-	public List<AccountActivity> getAccountActivity() {
-		return activities;
+	public void setUser(User user) {
+		this.user = user;		
 	}
+	
+
 }
