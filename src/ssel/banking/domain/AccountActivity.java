@@ -2,16 +2,25 @@ package ssel.banking.domain;
 
 import java.util.Date;
 
-@javax.persistence.Embeddable
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Table(name="ACCOUNT_ACTIVITY")
+@Entity
 public class AccountActivity extends AbstractDomain{
 	String name;
+	
+	@Temporal(TemporalType.DATE)
 	Date date;
 	double value;
 	
-	@javax.persistence.ManyToOne
+	@ManyToOne
 	Account account;
 	
-	@javax.persistence.ManyToOne
+	@ManyToOne
 	Account OtherAccount;
 	
 	public String getName() {

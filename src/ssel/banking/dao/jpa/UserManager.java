@@ -29,8 +29,9 @@ public class UserManager implements ssel.banking.dao.IUserManager{
 	}
 
 	public User storeUser(User user) {
-		em.persist(user);
-		return user;
+		User user2 = em.merge(user);
+		em.persist(user2);
+		return user2;
 	}
 
 	public boolean userExists(String email) {

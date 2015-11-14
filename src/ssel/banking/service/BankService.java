@@ -8,11 +8,12 @@ import ssel.banking.dao.jpa.AccountManager;
 import ssel.banking.domain.Account;
 import ssel.banking.domain.AccountActivity;
 import ssel.banking.domain.User;
+import ssel.banking.service.accgen.BelgianAccountNameGenerator;
 
 public class BankService implements IBankService{
 	
 	AccountManager manager;
-	AccountNameGenerator namer;
+	BelgianAccountNameGenerator namer;
 	
 	public AccountManager getManager() {
 		return manager;
@@ -21,13 +22,14 @@ public class BankService implements IBankService{
 		this.manager = manager;
 	}
 
-	public AccountNameGenerator getNamer() {
+	public BelgianAccountNameGenerator getNamer() {
 		return namer;
 	}
-	public void setNamer(AccountNameGenerator namer) {
+	public void setNamer(BelgianAccountNameGenerator namer) {
 		this.namer = namer;
 	}
 
+	//TODO persist accountActivity
 	private AccountActivity createNewAccountActivity(double amount, Account source, Account target, String message){
 		AccountActivity activity = new AccountActivity();
 		activity.setName(message);
@@ -40,12 +42,14 @@ public class BankService implements IBankService{
 		return activity;
 	}
 	
+	//TODO generate names
 	public Account createNewAccount(User user) {
 		Account account = new Account();
+		Account mostRecentAccount = manager.getMostRecentAccount();
 		account.setUser(user);
 		account.setAccountActivity(new ArrayList<AccountActivity>());
 		account.setValue(0);
-		account.setName(namer.generateName());
+		account.setName(namer.getNextName(mostRecentAccount.getName()));
 		account.setDate(new Date()); //date with not arguments create now
 		manager.storeAccount(account);
 		return account;

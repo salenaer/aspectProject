@@ -4,16 +4,19 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@NamedQuery(name = "User.user4Email", query = "SELECT c FROM User c WHERE c.email = :email")
+
+@Table(name="XUSER")
 @Entity
-@NamedQuery(name = "User.user4Email", query = "SELECT c FROM user c WHERE c.email = :email")
-
 public class User extends AbstractDomain{
 	String name;
 	String email;
 	String password;
 	
-	@javax.persistence.OneToMany
+	@OneToMany
 	List<Account> accounts;
 	
 	public String getName() {

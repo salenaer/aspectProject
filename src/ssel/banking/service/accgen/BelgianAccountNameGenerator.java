@@ -11,7 +11,6 @@ public class BelgianAccountNameGenerator implements IAccountNameGenerator {
 	}
 	
 	public String getFirstName() {
-		
 		return new BelgianAccountName(getPrefix(),0).toString();
 	}
 

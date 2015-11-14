@@ -39,8 +39,9 @@ public class AccountManager implements ssel.banking.dao.IAccountManager{
 	}
 
 	public Account storeAccount(Account ac) {
-		em.persist(ac);
-		return ac;
+		Account ac2 = em.merge(ac);
+		em.persist(ac2);
+		return ac2;
 	}
 
 	public Account getMostRecentAccount() {

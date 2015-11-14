@@ -8,25 +8,24 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
-	<!-- //TODO check if this is the Hibernate JPA implementation -->
+	<!-- //TODO check if this is correct -->
 
 	<bean id="EntityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
-		<property name="persistenceUnitName" value="personPersistenceUnit" />
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
 		<property name="dataSource" ref="dataSource" />
-		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
-		<property name="jpaDialect" ref="jpaDialect" />
+		<property name="persistenceUnitName" value="BankingWeb" /> 
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"> 
+				<property name="generateDdl" value="true" /> 
+				<property name="showSql" value="true" />
+				<property name="databasePlatform"  value="${hibernate.dialect}" /> 
+			</bean>
+		</property>
 	</bean>
+	
+	<!-- intercepts @PersistenceContext annotation and injects the EntityManager --> 
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" /> 
 
-	<bean id="UserManager" class="ssel.bankingDao.jpa.UserManager">
-		<property name="em" ref="EntityManagerFactory" />
-	</bean>
-
-	<bean id="AccountManager" class="ssel.bankingDao.jpa.AccountManager">
-		<property name="em" ref="EntityManagerFactory" />
-	</bean>
-
-
-
+	<bean name="userManager" class="ssel.bankingDao.jpa.UserManager" />
+	<bean name="accountManager" class="ssel.bankingDao.jpa.AccountManager" />
 </beans>
