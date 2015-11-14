@@ -1,6 +1,9 @@
 package ssel.banking.service;
 
 import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -29,7 +32,6 @@ public class BankService implements IBankService{
 		this.namer = namer;
 	}
 
-	//TODO persist accountActivity
 	private AccountActivity createNewAccountActivity(double amount, Account source, Account target, String message){
 		AccountActivity activity = new AccountActivity();
 		activity.setName(message);
@@ -42,7 +44,6 @@ public class BankService implements IBankService{
 		return activity;
 	}
 	
-	//TODO generate names
 	public Account createNewAccount(User user) {
 		Account account = new Account();
 		Account mostRecentAccount = manager.getMostRecentAccount();
@@ -73,6 +74,7 @@ public class BankService implements IBankService{
 	}
 
 	//transfer with strings
+	@Transactional
 	public void transfer(double amount, String sourceAccount, String targetAccount, String message) {
 		Account source = manager.getAccount4Name(sourceAccount);
 		Account target = manager.getAccount4Name(targetAccount);
@@ -80,6 +82,7 @@ public class BankService implements IBankService{
 	}
 	
 	//transfer with accounts
+	@Transactional
 	public void transfer(double amount, Account source, Account target, String message) {
 		createNewAccountActivity(-amount, source, target, message);
 		createNewAccountActivity(amount, target, source, message);
