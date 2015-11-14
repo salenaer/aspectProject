@@ -11,12 +11,12 @@
        
 	<!--  TODO: ADD YOUR SERVICE DECLARATIONS HERE -->
 	
-	<bean id="BankService" class="ssel.banking.service.BankService">
-		<property name="manager" ref="AccountManager" />
+	<bean id="bankService" class="ssel.banking.service.BankService">
+		<property name="manager" ref="accountManager" />
 	</bean>
 
-	<bean id="UserService" class="ssel.banking.service.UserService">
-		<property name="manager" ref="UserManager" />
+	<bean id="userService" class="ssel.banking.service.UserService">
+		<property name="manager" ref="userManager" />
 	</bean>
 	
 	<import resource="classpath:ssel/banking/service/accgen/banking.service.xml"/>

@@ -2,7 +2,6 @@ package ssel.banking.domain;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -11,20 +10,12 @@ import javax.persistence.Table;
 
 @Table(name="XUSER")
 @Entity
-public class User extends AbstractDomain{
-	String name;
+public class User extends AbstractNamedDomain{
 	String email;
 	String password;
 	
 	@OneToMany
 	List<Account> accounts;
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	
 	public String getEmail() {
 		return email;

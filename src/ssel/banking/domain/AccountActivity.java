@@ -10,9 +10,7 @@ import javax.persistence.TemporalType;
 
 @Table(name="ACCOUNT_ACTIVITY")
 @Entity
-public class AccountActivity extends AbstractDomain{
-	String name;
-	
+public class AccountActivity extends AbstractNamedDomain{
 	@Temporal(TemporalType.DATE)
 	Date date;
 	double value;
@@ -22,13 +20,6 @@ public class AccountActivity extends AbstractDomain{
 	
 	@ManyToOne
 	Account OtherAccount;
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	
 	public Date getDate() {
 		return date;

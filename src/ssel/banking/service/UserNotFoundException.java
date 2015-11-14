@@ -1,7 +1,5 @@
 package ssel.banking.service;
 
-import java.lang.Exception;
-
 public class UserNotFoundException extends RuntimeException{
 	String message;
 	

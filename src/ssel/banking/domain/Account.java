@@ -22,8 +22,7 @@ import javax.persistence.NamedQueries;
 
 @Table(name="ACCOUNT")
 @Entity
-public class Account extends AbstractDomain{
-	String name;
+public class Account extends AbstractNamedDomain{
 	@Temporal(TemporalType.DATE)
 	Date date;
 	double value;
@@ -33,13 +32,6 @@ public class Account extends AbstractDomain{
 	
 	@ManyToOne
 	User user;
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	
 	public Date getDate() {
 		return date;
