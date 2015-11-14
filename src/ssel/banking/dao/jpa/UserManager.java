@@ -16,16 +16,9 @@ public class UserManager implements ssel.banking.dao.IUserManager{
 	@PersistenceContext
 	EntityManager em;
 
-	private List<User> getUserList4Email(String email){
-		Query query = em.createNamedQuery("User.user4Email").setParameter("email", email);
-		@SuppressWarnings("unchecked")
-		List<User> users = query.getResultList();
-		return users;
-	}
-
 	public User findUser4Email(String email) {
-		List<User> users = getUserList4Email(email);
-		return users.get(0);
+		Query query = em.createNamedQuery("User.user4Email").setParameter("email", email);
+		return (User) query.getSingleResult();
 	}
 
 	public User storeUser(User user) {
@@ -35,6 +28,7 @@ public class UserManager implements ssel.banking.dao.IUserManager{
 	}
 
 	public boolean userExists(String email) {
-		List<User> user = getUserList4Email(email);
+		Query query = em.createNamedQuery("User.user4Email").setParameter("email", email);
+		List<User> user = (List<User>) query.getResultList();
 		return !user.isEmpty();}
 }

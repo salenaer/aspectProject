@@ -2,11 +2,12 @@ package ssel.banking.domain;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@NamedQuery(name = "User.user4Email", query = "SELECT c FROM User c WHERE c.email = :email")
+@NamedQuery(name = "User.user4Email", query = "SELECT U FROM User U WHERE U.email = :email")
 
 @Table(name="XUSER")
 @Entity
@@ -14,7 +15,7 @@ public class User extends AbstractNamedDomain{
 	String email;
 	String password;
 	
-	@OneToMany
+	@OneToMany @JoinColumn(name="USERID") 
 	List<Account> accounts;
 	
 	public String getEmail() {

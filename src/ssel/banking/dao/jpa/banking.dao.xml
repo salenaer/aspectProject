@@ -28,12 +28,11 @@
 	<bean name="accountManager" class="ssel.banking.dao.jpa.AccountManager" />
 	
 	<!-- Exception translation bean post processor -->
-	<bean
-		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 		
 	<!-- conﬁgure a simple transaction manager (uses the JPA em factory) -->
 	<bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="entityManagerFactory" ref="EntityManagerFactory" />
 	</bean>
 	
 	<!-- deﬁne a built-in aspect that intercepts the @Transactional annotation -->

@@ -10,29 +10,32 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 
 @NamedQueries({
-	@NamedQuery(name = "Account.accounts4User", query = "SELECT a FROM account a WHERE a.user = :user"),
-	@NamedQuery(name = "Account.accounts4Name", query = "SELECT a FROM account a WHERE c.name = :name"),
-	@NamedQuery(name = "Account.accounts", query = "SELECT a FROM account a")
+	@NamedQuery(name = "Account.accounts4User", query = "SELECT a FROM Account a WHERE a.user = :user"),
+	@NamedQuery(name = "Account.accounts4Name", query = "SELECT a FROM Account a WHERE a.name = :name"),
+	@NamedQuery(name = "Account.accounts", query = "SELECT a FROM Account a")
 })
 
 @Table(name="ACCOUNT")
 @Entity
 public class Account extends AbstractNamedDomain{
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE) @Column(name = "XDATE")
 	Date date;
 	double value;
 	
-	@OneToMany(cascade={CascadeType.ALL})
+	@OneToMany(cascade={CascadeType.ALL}) @JoinColumn(name="ACCOUNTID")
 	List<AccountActivity> activities;
 	
-	@ManyToOne
+	@ManyToOne @JoinColumn(name="USERID")
 	User user;
 	
+	@Column(name="XDATE")
 	public Date getDate() {
 		return date;
 	}

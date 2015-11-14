@@ -18,23 +18,19 @@ public class AccountManager implements ssel.banking.dao.IAccountManager{
 	EntityManager em;
 
 	public List<Account> getAccounts4User(User user) {
-		Query query = em.createNamedQuery("Account.account4User").setParameter("user", user);
-		@SuppressWarnings("unchecked")
-		List<Account> accounts = query.getResultList();
+		Query query = em.createNamedQuery("Account.accounts4User").setParameter("user", user);
+		List<Account> accounts = (List<Account>) query.getResultList();
 		return accounts;
 	}
 
 	public Account getAccount4Name(String name) {
-		Query query = em.createNamedQuery("Account.account4Name").setParameter("name", name);
-		@SuppressWarnings("unchecked")
-		List<Account> accounts = query.getResultList();
-		return accounts.get(0);
+		Query query = em.createNamedQuery("Account.accounts4Name").setParameter("name", name);
+		return (Account) query.getSingleResult();
 	}
 
 	public List<Account> getAllAccounts() {
 		Query query = em.createNamedQuery("Account.accounts");
-		@SuppressWarnings("unchecked")
-		List<Account> accounts = query.getResultList();
+		List<Account> accounts = (List<Account>) query.getResultList();
 		return accounts;
 	}
 
@@ -46,11 +42,9 @@ public class AccountManager implements ssel.banking.dao.IAccountManager{
 
 	public Account getMostRecentAccount() {
 		Query query = em.createQuery(
-				"SELECT a FROM account a ORDER BY a.date desc");
-		query.setMaxResults(1);
-		@SuppressWarnings("unchecked")
-		List<Account> accounts = query.getResultList();
-		return accounts.get(0);
+				"SELECT a FROM Account a ORDER BY a.date desc");
+		query = query.setMaxResults(1); //to speed up search
+		return (Account) query.getSingleResult();
 	}
 
 	public void removeAccount(Account ac) {
