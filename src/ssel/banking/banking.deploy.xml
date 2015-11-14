@@ -16,9 +16,5 @@
 
 
 	<!-- TODO: ADD YOUR OWN BEAN DEFINITIONS -->
-	<!-- Exception translation bean post processor -->
-	<bean
-		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
-
 
 </beans>
