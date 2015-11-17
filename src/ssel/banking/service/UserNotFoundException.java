@@ -1,6 +1,6 @@
 package ssel.banking.service;
 
-public class UserNotFoundException extends RuntimeException{
+public class UserNotFoundException extends SecurityException{
 	String message;
 	
 	public UserNotFoundException(String email) {

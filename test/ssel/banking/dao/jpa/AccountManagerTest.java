@@ -111,6 +111,13 @@ public class AccountManagerTest extends AbstractJpaTest {
 		
 		Date temp = new Date(Long.MAX_VALUE-1);
 		for(AccountActivity x: account.getAccountActivity()) {
+			/*
+			System.out.println("timecheck");
+			System.out.println(x.getId());
+			System.out.println(x.getDate());
+			System.out.println(temp);
+			System.out.println(x.getDate().compareTo(temp));
+			System.out.println();*/
 			assertTrue(x.getDate().compareTo(temp)<=0);
 			temp=x.getDate();
 		}

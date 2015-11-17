@@ -9,14 +9,11 @@ import javax.persistence.Table;
 
 @NamedQuery(name = "User.user4Email", query = "SELECT U FROM User U WHERE U.email = :email")
 
-@Table(name="XUSER")
 @Entity
+@Table(name="XUSER")
 public class User extends AbstractNamedDomain{
 	String email;
 	String password;
-	
-	@OneToMany @JoinColumn(name="USERID") 
-	List<Account> accounts;
 	
 	public String getEmail() {
 		return email;
@@ -30,15 +27,5 @@ public class User extends AbstractNamedDomain{
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	public List<Account> getAccounts() {
-		return accounts;
-	}
-	public void addAccount(Account account) {
-		accounts.add(account);
-	}
-	public void removeAccount(Account account) {
-		accounts.remove(account);
 	}
 }

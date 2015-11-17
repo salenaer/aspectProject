@@ -13,6 +13,7 @@
 	
 	<bean id="bankService" class="ssel.banking.service.BankService">
 		<property name="manager" ref="accountManager" />
+		<property name="namer" ref="accNameGenerator" />
 	</bean>
 
 	<bean id="userService" class="ssel.banking.service.UserService">

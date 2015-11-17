@@ -9,15 +9,15 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass public abstract class AbstractDomain implements Serializable {
 	 
 	@Id @GeneratedValue
-	private long id = NEW_ID;
+	private int id = NEW_ID;
 	
-	public static long NEW_ID = -1;
+	public static int NEW_ID = -1;
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id; 
 	}
 	

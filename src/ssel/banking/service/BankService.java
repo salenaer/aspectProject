@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 
+import ssel.banking.dao.IAccountManager;
 import ssel.banking.dao.jpa.AccountManager;
 import ssel.banking.domain.Account;
 import ssel.banking.domain.AccountActivity;
@@ -15,13 +16,13 @@ import ssel.banking.service.accgen.BelgianAccountNameGenerator;
 
 public class BankService implements IBankService{
 	
-	AccountManager manager;
+	IAccountManager manager;
 	BelgianAccountNameGenerator namer;
 	
-	public AccountManager getManager() {
+	public IAccountManager getManager() {
 		return manager;
 	}
-	public void setManager(AccountManager manager) {
+	public void setManager(IAccountManager manager) {
 		this.manager = manager;
 	}
 

@@ -1,5 +1,6 @@
 package ssel.banking.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 //this is a bank account
@@ -22,20 +23,20 @@ import javax.persistence.NamedQueries;
 	@NamedQuery(name = "Account.accounts", query = "SELECT a FROM Account a")
 })
 
-@Table(name="ACCOUNT")
 @Entity
-public class Account extends AbstractNamedDomain{
-	@Temporal(TemporalType.DATE) @Column(name = "XDATE")
+@Table(name="ACCOUNT")
+public class Account extends AbstractNamedDomain{	
+	
+	@Temporal(TemporalType.TIME) @Column(name = "XDATE")
 	Date date;
 	double value;
 	
-	@OneToMany(cascade={CascadeType.ALL}) @JoinColumn(name="ACCOUNTID")
-	List<AccountActivity> activities;
+	@OneToMany(mappedBy="account")
+	List<AccountActivity> activities = new ArrayList<AccountActivity>();
 	
 	@ManyToOne @JoinColumn(name="USERID")
 	User user;
 	
-	@Column(name="XDATE")
 	public Date getDate() {
 		return date;
 	}
@@ -67,6 +68,4 @@ public class Account extends AbstractNamedDomain{
 	public void setUser(User user) {
 		this.user = user;		
 	}
-	
-
 }

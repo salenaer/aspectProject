@@ -8,33 +8,36 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
-	<bean id="EntityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="persistenceUnitName" value="BankingWeb" /> 
+		<property name="persistenceUnitName" value="BankingWeb" />
 		<property name="jpaVendorAdapter">
-			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"> 
-				<property name="generateDdl" value="true" /> 
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="generateDdl" value="true" />
 				<property name="showSql" value="true" />
-				<property name="databasePlatform"  value="${hibernate.dialect}" /> 
+				<property name="databasePlatform" value="${hibernate.dialect}" />
 			</bean>
 		</property>
 	</bean>
-	
-	<!-- intercepts @PersistenceContext annotation and injects the EntityManager --> 
-	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" /> 
+
+	<!-- intercepts @PersistenceContext annotation and injects the EntityManager -->
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
 	<bean name="userManager" class="ssel.banking.dao.jpa.UserManager" />
+
 	<bean name="accountManager" class="ssel.banking.dao.jpa.AccountManager" />
-	
+
 	<!-- Exception translation bean post processor -->
-	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
-		
+	<bean
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
 	<!-- conﬁgure a simple transaction manager (uses the JPA em factory) -->
 	<bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="EntityManagerFactory" />
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-	
+
 	<!-- deﬁne a built-in aspect that intercepts the @Transactional annotation -->
 	<tx:annotation-driven transaction-manager="txManager" />
 </beans>

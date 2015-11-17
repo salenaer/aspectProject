@@ -2,6 +2,7 @@ package ssel.banking.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -9,17 +10,20 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Table(name="ACCOUNT_ACTIVITY")
 @Entity
+@Table(name="ACCOUNT_ACTIVITY")
 public class AccountActivity extends AbstractNamedDomain{
-	@Temporal(TemporalType.DATE)
+	
+	@Temporal(TemporalType.DATE) @Column(name = "XDATE")
 	Date date;
 	double value;
 	
-	@ManyToOne @JoinColumn(name="ACCOUNTID")
+	@ManyToOne 
+	@JoinColumn(name="ACCOUNTID")
 	Account account;
 	
-	@ManyToOne @JoinColumn(name="OTHERACCOUNTID")
+	@ManyToOne 
+	@JoinColumn(name="OTHERACCOUNTID")
 	Account OtherAccount;
 	
 	public Date getDate() {

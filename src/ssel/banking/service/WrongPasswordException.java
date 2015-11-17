@@ -1,6 +1,6 @@
 package ssel.banking.service;
 
-public class WrongPasswordException extends RuntimeException{
+public class WrongPasswordException extends SecurityException{
 	String message;
 	
 	public WrongPasswordException() {

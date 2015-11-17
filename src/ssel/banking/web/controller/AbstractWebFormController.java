@@ -11,7 +11,6 @@ public abstract class AbstractWebFormController extends SimpleFormController {
 	private IBankService bankService;
 	private IUserStorageService userStorageService;
 	
-
 	public IBankService getBankService() {
 		return bankService;
 	}
@@ -29,7 +28,6 @@ public abstract class AbstractWebFormController extends SimpleFormController {
 	}
 	
 	public User getCurrentUser() {
-		
 		return userStorageService.getCurrentUser();
 	}
 

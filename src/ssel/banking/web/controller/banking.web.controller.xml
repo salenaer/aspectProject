@@ -25,7 +25,7 @@
 	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
-				<!--  TODO: add your business exception mappings -->
+				<prop key= "java.lang.SecurityException"> securityException</prop>  
 			</props>
 		</property> 
 	</bean>  
@@ -48,8 +48,18 @@
 		
 	</bean>
     
+    <bean name="/newAccount.htm" class="ssel.banking.web.controller.NewAccountController" autowire="autodetect">
+		
+	</bean>
+	
+	<bean name="/accountDetails.htm" class="ssel.banking.web.controller.AccountDetailsController" autowire="autodetect">
+		
+	</bean>
+	
+	<bean name="/doTransfer.htm" class="ssel.banking.web.controller.DoTransferController" autowire="autodetect">
+		
+	</bean>
     
-    <!--  TODO: add your own controllers -->
     
       
   </beans>

@@ -37,6 +37,26 @@
     <definition name="logout" path="/WEB-INF/jsp/logout.jsp" >
     </definition>
     
+    <definition name="newAccount" extends="mainLayout" >
+    	<put name="body"   value="/WEB-INF/jsp/newAccount.jsp" />
+    </definition>
+    
+    <definition name="accountDetails" extends="mainLayout" >
+    	<put name="body"   value="/WEB-INF/jsp/accountDetails.jsp" />
+    </definition>
+    
+    <definition name="doTransfer" extends="mainLayout" >
+    	<put name="body"   value="/WEB-INF/jsp/doTransfer.jsp" />
+    </definition>
+    
+    <definition name="transfersuccess" extends="mainLayout" >
+    	<put name="body"   value="/WEB-INF/jsp/transferSuccess.jsp" />
+    </definition>
+    
+    <definition name="securityException" extends="mainLayout" >
+    	<put name="body"   value="/WEB-INF/jsp/securityException.jsp" />
+    </definition>
+    
     
 </tiles-definitions>  
  
