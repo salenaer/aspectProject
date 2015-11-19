@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import ssel.banking.dao.IAccountManager;
-import ssel.banking.dao.jpa.AccountManager;
 import ssel.banking.domain.Account;
 import ssel.banking.domain.AccountActivity;
 import ssel.banking.domain.User;

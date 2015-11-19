@@ -13,6 +13,7 @@
 	<import resource="classpath:ssel/banking/dao/jpa/banking.dao.xml" />
 	<import resource="classpath:ssel/banking/service/banking.service.xml" />
 	<import resource="classpath:ssel/banking/web/controller/banking.web.controller.xml" />
+	<import resource="classpath:ssel/banking/security/banking.security.xml" />
 
 
 	<!-- TODO: ADD YOUR OWN BEAN DEFINITIONS -->

@@ -1,10 +1,7 @@
 package ssel.banking.domain;
-import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @NamedQuery(name = "User.user4Email", query = "SELECT U FROM User U WHERE U.email = :email")
