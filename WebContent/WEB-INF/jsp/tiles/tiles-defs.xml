@@ -49,7 +49,7 @@
     	<put name="body"   value="/WEB-INF/jsp/doTransfer.jsp" />
     </definition>
     
-    <definition name="transfersuccess" extends="mainLayout" >
+    <definition name="transferSuccess" extends="mainLayout" >
     	<put name="body"   value="/WEB-INF/jsp/transferSuccess.jsp" />
     </definition>
     

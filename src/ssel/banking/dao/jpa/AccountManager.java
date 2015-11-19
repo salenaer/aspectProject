@@ -34,12 +34,13 @@ public class AccountManager implements ssel.banking.dao.IAccountManager{
 		return accounts;
 	}
 
-	public Account storeAccount(Account ac) {
-		Account ac2 = em.merge(ac);
-		em.persist(ac2);
-		return ac2;
+	public Account storeAccount(Account acc) {
+		Account persistedAccount = em.merge(acc);
+		em.persist(persistedAccount);
+		return persistedAccount;
 	}
 
+	//TODO create named query
 	public Account getMostRecentAccount() {
 		Query query = em.createQuery(
 				"SELECT a FROM Account a ORDER BY a.date desc");

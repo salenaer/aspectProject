@@ -57,7 +57,7 @@
 	</bean>
 	
 	<bean name="/doTransfer.htm" class="ssel.banking.web.controller.DoTransferController" autowire="autodetect">
-		
+		<property name="successView" value="transferSuccess"/>
 	</bean>
     
     

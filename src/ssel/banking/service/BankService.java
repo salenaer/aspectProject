@@ -52,9 +52,9 @@ public class BankService implements IBankService{
 		account.setAccountActivity(new ArrayList<AccountActivity>());
 		account.setValue(0);
 		account.setName(namer.getNextName(mostRecentAccount.getName()));
-		account.setDate(new Date()); //date with not arguments create now
-		manager.storeAccount(account);
-		return account;
+		account.setDate(new Date()); //date with no arguments create now
+		Account storedAccount = manager.storeAccount(account);
+		return storedAccount;
 	}
 
 	public void removeAccount(Account account) {

@@ -31,7 +31,7 @@ public class Account extends AbstractNamedDomain{
 	Date date;
 	double value;
 	
-	@OneToMany(mappedBy="account")
+	@OneToMany(cascade={CascadeType.ALL}, mappedBy="account") 
 	List<AccountActivity> activities = new ArrayList<AccountActivity>();
 	
 	@ManyToOne @JoinColumn(name="USERID")
