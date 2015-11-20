@@ -9,8 +9,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="XUSER")
 public class User extends AbstractNamedDomain{
-	String email;
-	String password;
+	private String email;
+	private String password;
 	
 	public String toString(){
 		String object = "User " + getName() + " " + email + " " + password;

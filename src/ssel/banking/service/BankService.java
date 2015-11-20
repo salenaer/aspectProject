@@ -16,8 +16,8 @@ import ssel.banking.service.accgen.BelgianAccountNameGenerator;
 
 public class BankService implements IBankService{
 	
-	IAccountManager manager;
-	BelgianAccountNameGenerator namer;
+	private IAccountManager manager;
+	private BelgianAccountNameGenerator namer;
 	
 	public IAccountManager getManager() {
 		return manager;

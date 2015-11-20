@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class AccountManager implements ssel.banking.dao.IAccountManager{
 
 	@PersistenceContext
-	EntityManager em;
+	private EntityManager em;
 
 	public List<Account> getAccounts4User(User user) {
 		Query query = em.createNamedQuery("Account.accounts4User").setParameter("user", user);

@@ -15,8 +15,8 @@ import javax.persistence.TemporalType;
 public class AccountActivity extends AbstractNamedDomain{
 	
 	@Temporal(TemporalType.DATE) @Column(name = "XDATE")
-	Date date;
-	double value;
+	private Date date;
+	private double value;
 	
 	@ManyToOne 
 	@JoinColumn(name="ACCOUNTID")

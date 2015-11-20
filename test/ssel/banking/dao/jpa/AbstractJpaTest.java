@@ -4,6 +4,7 @@ import org.springframework.test.jpa.AbstractJpaTests;
 
 import ssel.banking.TestUtils;
 import ssel.banking.domain.User;
+import ssel.banking.security.AuthorizationAspect;
 
 public abstract class AbstractJpaTest extends AbstractJpaTests {
 	
@@ -12,8 +13,7 @@ public abstract class AbstractJpaTest extends AbstractJpaTests {
 	
 	// TODO: we have to hack the aspects to disabled, otherwise they apply in the tests, which we do not want for a dao test
 	public AbstractJpaTest() {
-		
-		
+		AuthorizationAspect.setEnabled(false);
 	}
 	
 	public void setTestUtils(TestUtils testUtils) {

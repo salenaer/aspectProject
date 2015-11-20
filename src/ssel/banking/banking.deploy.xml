@@ -8,14 +8,11 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
+	<import resource="classpath:ssel/banking/service/banking.service.xml" />
+	<import resource="classpath:ssel/banking/security/banking.security.xml" />
 	<import resource="classpath:ssel/banking/dao/banking.hsqldb.xml" />
 	<import resource="classpath:ssel/banking/dao/banking.db.xml" />
 	<import resource="classpath:ssel/banking/dao/jpa/banking.dao.xml" />
-	<import resource="classpath:ssel/banking/service/banking.service.xml" />
 	<import resource="classpath:ssel/banking/web/controller/banking.web.controller.xml" />
-	<import resource="classpath:ssel/banking/security/banking.security.xml" />
-
-
-	<!-- TODO: ADD YOUR OWN BEAN DEFINITIONS -->
-
+	<import resource="classpath:ssel/banking/jmx/banking.jmx.xml" />
 </beans>

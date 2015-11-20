@@ -5,7 +5,7 @@ import ssel.banking.domain.User;
 
 public class UserService implements IUserService{
 	
-	IUserManager manager;
+	private IUserManager manager;
 	
 	public IUserManager getManager() {
 		return manager;

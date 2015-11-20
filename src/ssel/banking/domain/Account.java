@@ -28,8 +28,8 @@ import javax.persistence.NamedQueries;
 public class Account extends AbstractNamedDomain{	
 	
 	@Temporal(TemporalType.TIME) @Column(name = "XDATE")
-	Date date;
-	double value;
+	private Date date;
+	private double value;
 	
 	@OneToMany(cascade={CascadeType.ALL}, mappedBy="account") 
 	List<AccountActivity> activities = new ArrayList<AccountActivity>();
