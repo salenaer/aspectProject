@@ -37,6 +37,11 @@ public class Account extends AbstractNamedDomain{
 	@ManyToOne @JoinColumn(name="USERID")
 	User user;
 	
+	public String toString(){
+		String object = "Account " + getName() + " " + date + " " + value;
+		return object;
+	}
+	
 	public Date getDate() {
 		return date;
 	}

@@ -12,6 +12,11 @@ public class User extends AbstractNamedDomain{
 	String email;
 	String password;
 	
+	public String toString(){
+		String object = "User " + getName() + " " + email + " " + password;
+		return object;
+	}
+	
 	public String getEmail() {
 		return email;
 	}

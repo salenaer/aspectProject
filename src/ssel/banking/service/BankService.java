@@ -11,6 +11,7 @@ import ssel.banking.dao.IAccountManager;
 import ssel.banking.domain.Account;
 import ssel.banking.domain.AccountActivity;
 import ssel.banking.domain.User;
+import ssel.banking.security.SudoSecurityContext;
 import ssel.banking.service.accgen.BelgianAccountNameGenerator;
 
 public class BankService implements IBankService{
@@ -32,6 +33,7 @@ public class BankService implements IBankService{
 		this.namer = namer;
 	}
 
+	@SudoSecurityContext
 	private AccountActivity createNewAccountActivity(double amount, Account source, Account target, String message){
 		AccountActivity activity = new AccountActivity();
 		activity.setName(message);

@@ -9,8 +9,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository //to translate errors
+@Transactional
 public class UserManager implements ssel.banking.dao.IUserManager{
 
 	@PersistenceContext

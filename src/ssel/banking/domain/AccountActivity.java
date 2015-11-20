@@ -24,7 +24,13 @@ public class AccountActivity extends AbstractNamedDomain{
 	
 	@ManyToOne 
 	@JoinColumn(name="OTHERACCOUNTID")
-	Account OtherAccount;
+	Account otherAccount;
+	
+	public String toString(){
+		String object = "AccountActivity " + getName() + " " + date + " " + account.getName();
+		object += " " + otherAccount.getName() + " " + value;
+		return object;
+	}
 	
 	public Date getDate() {
 		return date;
@@ -48,10 +54,10 @@ public class AccountActivity extends AbstractNamedDomain{
 	}
 	
 	public Account getOtherAccount() {
-		return OtherAccount;
+		return otherAccount;
 	}
 	public void setOtherAccount(Account otherAccount) {
-		OtherAccount = otherAccount;
+		otherAccount = otherAccount;
 	}
 	
 }
