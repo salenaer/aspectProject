@@ -11,5 +11,4 @@
        
 	<bean name="accNameGenerator" class="ssel.banking.service.accgen.BelgianAccountNameGenerator" autowire="autodetect"/>
 	
-	
 </beans>
