@@ -57,7 +57,6 @@ public class AccountActivity extends AbstractNamedDomain{
 		return otherAccount;
 	}
 	public void setOtherAccount(Account otherAccount) {
-		otherAccount = otherAccount;
+		this.otherAccount = otherAccount;
 	}
-	
 }
